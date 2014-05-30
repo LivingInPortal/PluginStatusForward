@@ -14,11 +14,20 @@ enum PSFHookType
         PSF_OnPluginDestroyed
 };
 
-functag PSFCall public(Handle:plugin);
+funcenum PSFCall
+{
+        public(Handle:plugin),
+        public(Handle:plugin, bool:paused)
+};
 
 native bool:PSF_RegForward(PSFHookType:type, PSFCall:callback);
 native bool:PSF_DelForward(PSFHookType:type, PSFCall:callback);
 native PSF_DelAllForwardInType(PSFHookType:type);
+stock PSF_DelAllForward() {
+        for(new PSFHookType:i = PSFHookType:0; i < PSFHookType; i++) {
+                PSF_DelAllForwardInType(i);
+        }
+}
 
 
 public Extension:__ext_sdkhooks =
