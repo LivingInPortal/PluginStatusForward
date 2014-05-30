@@ -16,7 +16,13 @@ enum PSFHookType
 
 funcenum PSFCall
 {
+        // OnPluginCreated
+        // OnPluginLoaded
+        // OnPluginUnloaded
+        // OnPluginDestroyed
         public(Handle:plugin),
+        
+        // OnPluginPauseChange
         public(Handle:plugin, bool:paused)
 };
 
